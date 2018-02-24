@@ -5,9 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var findFood = require('./routes/find-food');
-var biteIt = require('./routes/bite-it');
+
+// Define the route files
+var index         = require('./routes/index');        // This actually just serves up an empty-ish static HTML view
+var findFood      = require('./routes/find-food');    // This will return a list of all foods matching the query
+var biteIt        = require('./routes/bite-it');      // Receiver wants to get someones food
+var confirmBite   = require('./routes/confirm-bite'); // Verify that the receiver has got what they were promised
 
 var app = express();
 
@@ -23,9 +26,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Assign base paths to routes
 app.use('/', index);
 app.use('/find-food', findFood);
 app.use('/bite-it', biteIt);
+app.use('/confirm-bite', confirmBite);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

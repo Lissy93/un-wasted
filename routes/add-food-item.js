@@ -1,28 +1,50 @@
-var express = require('express');
-var router = express.Router();
-var fs = require('fs');
+const express = require('express');
+const router = express.Router();
 
 const FoodItemModel = require('./../models/food-item');
 
-router.post('/', function(req, res, next) {
+const validateFoodItem = require('./../helpers/validate-input');
+
+/**
+ * Endpoint to add a food item into the Mongo
+ * It calls to validate helper functions
+ * And if there is an error, then a message gets made
+ */
+router.post('/', function(req, res) {
 
     const foodItem = req.body;
 
-    console.log(foodItem);
+    const validationResults = validateFoodItem(foodItem);
 
-    FoodItemModel.create(foodItem, function (err, savedFoodItem) {
+    let message = '';
 
-        var message = '';
+    if(!validationResults.isValid){
+        res.send({
+            message: 'Failed to save item, due to input error.',
+            insertResults: validationResults,
+        });
+    }
 
-        if (err){
-            message = 'Failed to save item :(';
-        }
-        else{
-            message = foodItem.name + ' was successfully saved :)';
-        }
+    else { // Input was correct, so proceed
 
-        res.send({ message: message, foodItem: savedFoodItem, error: err });
-    });
+        FoodItemModel.create(foodItem, function (err) {
+
+            if (err) {
+                message = 'Failed to save item :(';
+            }
+            else {
+                message = foodItem.name + ' was successfully saved';
+            }
+
+            validationResults.error = err;
+
+            res.send({
+                message: message,
+                insertResults: validationResults,
+            });
+        });
+
+    }
 
 });
 

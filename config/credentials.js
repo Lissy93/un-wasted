@@ -1,4 +1,5 @@
 
+/* MongoDB / or MongoLab credentials*/
 module.exports.mongoCredentials = {
     username:   "user1",
     password:   "password1",

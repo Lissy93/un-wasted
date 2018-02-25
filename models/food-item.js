@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var FoodItemSchema = new Schema({
+const FoodItemSchema = new Schema({
     name: String,
     imageURL: String,
     expiry: String,

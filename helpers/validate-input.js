@@ -49,10 +49,6 @@ function validateFoodItem(foodItem){
         invalidate('Provider of food item must be specified');
     }
 
-    if(!isStringOkay(foodItem.provider.name)){
-        invalidate('The provider of food must have a valid name');
-    }
-
     if(ret.isValid) ret.message = 'Input is valid';
 
     return ret;

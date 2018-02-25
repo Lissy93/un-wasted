@@ -33,7 +33,7 @@ router.post('/', function(req, res, next) {
     note.badge = 3;
     note.sound = "ping.aiff";
     note.alert = recipient.name+" would like your "+foodItem.name;
-    note.payload = {'messageFrom': recipient.name};
+    note.payload = {'messageFrom': recipient.name, 'userImage': recipient.image};
     note.topic = "com.startHack2018.Un-Wasted";
 
     apnProvider.send(note, apnsToken).then( (result) => {

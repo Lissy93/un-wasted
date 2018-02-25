@@ -11,11 +11,12 @@ const mongoose = require("mongoose");
 const credentials = require('./config/credentials');
 
 /* Define the route files */
-const index = require('./routes/index');                // This actually just serves up an empty-ish static HTML view
-const findFood = require('./routes/find-food');         // This will return a list of all foods matching the query
-const biteIt = require('./routes/bite-it');             // Receiver wants to get someones food
-const confirmBite = require('./routes/confirm-bite');   // Verify that the receiver has got what they were promised
-const addFoodItem = require('./routes/add-food-item');  // Add a new item of food, to the db
+const index = require('./routes/index');              // This actually just serves up an empty-ish static HTML view
+const findFood = require('./routes/find-food');       // This will return a list of all foods matching the query
+const biteIt = require('./routes/bite-it');           // Receiver wants to get someones food
+const confirmBite = require('./routes/confirm-bite'); // Verify that the receiver has got what they were promised
+const addFoodItem = require('./routes/add-food-item');// Add a new item of food, to the db
+const delFoodItem = require('./routes/delete-food-item'); // Deletes a given food item from the DB
 
 /* Initialise new Express app */
 const app = express();
@@ -52,6 +53,7 @@ app.use('/find-food', findFood);
 app.use('/bite-it', biteIt);
 app.use('/confirm-bite', confirmBite);
 app.use('/add-food-item', addFoodItem);
+app.use('/delete-food-item', delFoodItem);
 
 /* Catch 404 and forward to error handler */
 app.use(function(req, res, next) {

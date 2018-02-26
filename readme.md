@@ -9,15 +9,11 @@ tokens and social rep encourages users to reduce waste when they've bought too m
 This decentralised application uses smart-contracts to verify transactions, using 
 [Ethereum](https://www.ethereum.org/).
 
----
 
 [![Build Status](https://travis-ci.org/Lissy93/un-wasted.svg?branch=master)](https://travis-ci.org/Lissy93/un-wasted)
-
-[![BCH compliance](https://bettercodehub.com/edge/badge/Lissy93/un-wasted?branch=master)](https://bettercodehub.com/)
-
-[![dependencies Status](https://david-dm.org/Lissy93/un-wasted/status.svg)](https://david-dm.org/Lissy93/un-wasted)
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/825476c7f0e241d8b66450a0ca6f9b42)](https://www.codacy.com/app/lissy93/un-wasted?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Lissy93/un-wasted&amp;utm_campaign=Badge_Grade)
+[![dependencies Status](https://david-dm.org/Lissy93/un-wasted/status.svg)](https://david-dm.org/Lissy93/un-wasted)
+[![BCH compliance](https://bettercodehub.com/edge/badge/Lissy93/un-wasted?branch=master)](https://bettercodehub.com/)
 
 ---
 
@@ -25,7 +21,9 @@ This decentralised application uses smart-contracts to verify transactions, usin
 
 ---
 
-This repository contains the server-side part of the app. 
+This repository contains just the server-side part of the app. 
+[Hosted on Heroku](https://un-wasted.herokuapp.com/).
+
 For the project to be functional, the following was also developed:
 
 
